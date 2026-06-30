@@ -1,0 +1,54 @@
+---
+title: SpecFirst
+description: Validate requirements before a single line of code is written
+---
+
+## The Problem
+
+Requirements written without engineering validation produce unbuildable stories, missing acceptance criteria, and scope that expands mid-sprint. QA finds gaps after development — the most expensive moment to find them.
+
+## What It Does
+
+Transforms a feature idea into a validated, dependency-sequenced backlog:
+
+- INVEST-scored user stories
+- Gherkin acceptance criteria
+- Flow gap analysis
+- Dependency-sequenced backlog ready for sprint
+
+QA Lead agent validates all criteria before development begins.
+
+## Try It
+
+```
+activate nablr
+Set agent to product_manager. Create requirements for [feature name]
+```
+
+Then validate before coding starts:
+
+```
+Set agent to qa_lead. Validate the requirements for testability
+```
+
+Full sequence:
+
+```
+Set agent to product_manager. Write requirements with AC for user authentication
+Set agent to qa_lead. Validate AC testability and flag ambiguities
+Set agent to architect. Design the system for user authentication
+```
+
+## Expected Output
+
+- `docs/requirements/STORY-XXX.md` — user story with Gherkin AC
+- AC validation report — pass/fail per criterion
+- Dependency-sequenced backlog
+
+## Who This Is For
+
+- Product teams using AI to write tickets no one can build from
+- PMs at high-velocity startups
+- Delivery leads managing distributed or AI-assisted teams
+
+<Tip>Provide the feature name and one sentence of context upfront. The more specific the brief, the tighter the AC generated.</Tip>

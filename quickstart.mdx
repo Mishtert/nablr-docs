@@ -77,34 +77,122 @@ In your AI assistant, type:
 What nablr agents are available?
 ```
 
-You should see a list of agents with descriptions.
+You should see a list of agents with descriptions. No key required — nablr runs in free tier by default.
 
 ## Start a free trial
 
-To unlock all 19 persona prompts for 14 days:
+14-day full Pro access. No signup. No credit card. No browser required.
+
+Tell your AI assistant:
 
 ```
 Start my nablr trial
 ```
 
-nablr generates a device ID and mints a trial key automatically. No credit card required.
+nablr generates a device ID, calls the license server, and stores a trial key at `~/.nablr_cache/trial_key.json`. Pro access activates immediately — no restart needed.
 
-## Try a persona
+<Note>One trial per device. If you see "trial already used for this device", your 14-day window has expired. Subscribe at [nablr.dev](https://nablr.dev) to continue.</Note>
+
+## Activate a paid key
+
+After subscribing at [nablr.dev](https://nablr.dev), you receive a key by email (`sk_nablr_...`).
+
+**Option 1 — via your AI assistant (recommended):**
 
 ```
-Set agent to developer
+Activate my key sk_nablr_<your-key-here>
 ```
 
-The Developer persona (Polyglot Craftsman) injects the Elite Code Quality Protocol — type hints, structured logging, DRY/KISS enforcement, cognitive complexity limits.
+**Option 2 — via environment variable (CI / team deployments):**
+
+Add `env` to your MCP config:
+
+<Tabs>
+  <Tab title="Cursor">
+    ```json
+    {
+      "mcpServers": {
+        "nablr": {
+          "command": "uvx",
+          "args": ["nablr"],
+          "env": {
+            "NABLR_API_KEY": "sk_nablr_<your-key-here>"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Claude Desktop">
+    ```json
+    {
+      "mcpServers": {
+        "nablr": {
+          "command": "uvx",
+          "args": ["nablr"],
+          "env": {
+            "NABLR_API_KEY": "sk_nablr_<your-key-here>"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Windsurf">
+    ```json
+    {
+      "mcpServers": {
+        "nablr": {
+          "command": "uvx",
+          "args": ["nablr"],
+          "env": {
+            "NABLR_API_KEY": "sk_nablr_<your-key-here>"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+`NABLR_API_KEY` always takes precedence over any locally stored key.
+
+## What you get per tier
+
+| Feature | Free | Trial / Pro |
+|---------|------|-------------|
+| 40+ code scanners | ✅ | ✅ |
+| Workflow tools | ✅ | ✅ |
+| Codebase mapping (CODE_MAP) | ✅ | ✅ |
+| 19 SDLC persona prompts | — | ✅ |
+| 34 rule files | — | ✅ |
+| Language & framework configs | — | ✅ |
+| Offline asset cache | — | ✅ |
+
+## Try a use case
+
+Pick the problem that matches your situation:
+
+| Problem | Use Case |
+|---------|----------|
+| Codebase full of unknown debt | [DebtRadar](/use-cases/debt-radar) |
+| AI-generated code shipping defects | [ShipSafe](/use-cases/ship-safe) |
+| Requirements no one can build from | [SpecFirst](/use-cases/spec-first) |
+| Production incident with unknown root cause | [ForensicsIQ](/use-cases/forensics-iq) |
+| Green CI but real failures in prod | [TestArchitect](/use-cases/test-architect) |
+| Platform migration with no exit plan | [MigrationPilot](/use-cases/migration-pilot) |
+| AI-assisted dev with no audit trail | [GuardianCI](/use-cases/guardian-ci) |
+| Schema change breaking unknown services | [ContextMesh](/use-cases/context-mesh) |
+| Inherited codebase with no docs | [Code-to-Clarity](/use-cases/code-to-clarity) |
 
 ## Full SDLC workflow
 
 ```
-1. Set agent to discovery     → scan codebase, generate CODE_MAP
+1. Set agent to discovery       → scan codebase, generate CODE_MAP
 2. Set agent to product_manager → write requirements with testable AC
-3. Set agent to qa_lead        → validate AC before development
-4. Set agent to architect      → design boundaries and integration points
-5. Set agent to developer      → implement with quality enforcement
-6. Set agent to tester         → write real-execution tests
-7. Set agent to pr_reviewer    → review for compliance + AI anti-patterns
+3. Set agent to qa_lead         → validate AC before development
+4. Set agent to architect       → design boundaries and integration points
+5. Set agent to developer       → implement with quality enforcement
+6. Set agent to tester          → write real-execution tests
+7. Set agent to pr_reviewer     → review for compliance + AI anti-patterns
 ```

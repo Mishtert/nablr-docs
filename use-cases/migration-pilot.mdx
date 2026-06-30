@@ -1,0 +1,57 @@
+---
+title: MigrationPilot
+description: Migrate platforms with a plan, not a prayer
+---
+
+## The Problem
+
+Technology migrations — framework upgrades, monolith decomposition, language rewrites — are the highest-risk, lowest-visibility projects in engineering. Teams start without a complete map and discover unknowns mid-flight.
+
+## What It Does
+
+Covers migration strategy through traffic switch:
+
+- Full migration map of impacted components
+- Behavioral parity test suite to prove equivalence
+- Feature-flag-based cutover plan
+- Rollback specification
+
+## Try It
+
+```
+activate nablr
+Set agent to migration_planner. Create a migration plan for [what you're migrating]
+```
+
+Example — framework upgrade:
+
+```
+Set agent to migration_planner. Plan migration from Flask to FastAPI. Entry point is src/app.py
+```
+
+Parity validation after implementation:
+
+```
+Set agent to parity_tester. Verify behavioral equivalence between old and new implementation
+```
+
+Cutover:
+
+```
+Set agent to cutover_engineer. Execute feature-flag cutover with rollback plan
+```
+
+## Expected Output
+
+- Migration map — full inventory of impacted components
+- Parity test suite — behavioral equivalence proofs
+- Cutover plan with feature flags and traffic-switch sequence
+- Rollback specification
+
+## Who This Is For
+
+- Engineering teams mid-migration with no clear exit
+- Platform modernization programs
+- Consulting firms executing technology transitions for clients
+
+<Warning>Run the parity test suite before any traffic switch. MigrationPilot blocks cutover if equivalence is unproven.</Warning>

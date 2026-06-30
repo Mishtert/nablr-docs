@@ -1,0 +1,50 @@
+---
+title: ContextMesh
+description: Know what breaks before you change it
+---
+
+## The Problem
+
+In microservices and multi-repo environments, no one person holds the full picture. A schema change in one service silently breaks three others. Staff engineers spend weeks tracing cross-system dependencies by hand.
+
+## What It Does
+
+Connects multiple repositories into a unified context graph:
+
+- Traces change propagation across service boundaries
+- Answers: "what else breaks if I change this interface?"
+- Surfaces hidden coupling before it becomes a production incident
+
+## Try It
+
+```
+activate nablr
+Set agent to impact_architect. Assess the impact of changing [interface/schema/function]
+```
+
+Example — API contract change:
+
+```
+Set agent to impact_architect. What breaks if I change the response schema of GET /api/users?
+```
+
+Full cross-repo scan:
+
+```
+Set agent to discovery. Scan this codebase and generate the context graph
+Set agent to impact_architect. Show all consumers of the UserService.get_by_id method
+```
+
+## Expected Output
+
+- Context graph — unified dependency map across services
+- Change impact report — downstream consumers affected
+- `nablr-reports/context_graph.json` — machine-readable graph for CI integration
+
+## Who This Is For
+
+- Platform teams at organizations with microservices sprawl
+- Staff engineers executing system-wide changes
+- Engineering organizations preparing for major refactors or infrastructure migrations
+
+<Tip>Point nablr at each service repo in sequence using discovery before running the impact assessment. The richer the context graph, the more accurate the impact trace.</Tip>

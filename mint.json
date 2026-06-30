@@ -43,6 +43,20 @@
       "pages": ["introduction", "quickstart"]
     },
     {
+      "group": "Use Cases",
+      "pages": [
+        "use-cases/debt-radar",
+        "use-cases/ship-safe",
+        "use-cases/spec-first",
+        "use-cases/forensics-iq",
+        "use-cases/test-architect",
+        "use-cases/migration-pilot",
+        "use-cases/guardian-ci",
+        "use-cases/context-mesh",
+        "use-cases/code-to-clarity"
+      ]
+    },
+    {
       "group": "Agents",
       "pages": ["agents/overview"]
     },

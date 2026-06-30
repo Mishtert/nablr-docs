@@ -1,0 +1,54 @@
+---
+title: GuardianCI
+description: Enterprise-grade engineering governance — without the bureaucracy
+---
+
+## The Problem
+
+At scale, AI-assisted development produces volume without discipline. No audit trail. No workflow enforcement. No phase-gate compliance. Regulators and security teams cannot verify that standards were followed.
+
+## What It Does
+
+Integrates nablr into CI/CD. Every commit:
+
+- Workflow phase validated
+- Agent handoffs logged
+- Compliance checked
+- Impact gate executed
+
+Full audit trail per story. State persists across sessions — no context loss between agents or days.
+
+## Try It
+
+```
+activate nablr
+Set agent to scrum_master. Initialize workflow for STORY-001
+```
+
+Check compliance state at any point:
+
+```
+What's the status of STORY-001?
+What agent should I use next?
+```
+
+Trigger impact gate before a risky change:
+
+```
+Set agent to impact_architect. Assess the impact of changing the auth middleware
+```
+
+## Expected Output
+
+- Per-story audit trail in `nablr-reports/`
+- Phase-gate compliance record per commit
+- Handoff log between agents
+- Impact assessment report before destructive changes
+
+## Who This Is For
+
+- Enterprises running AI-assisted development at scale who need auditability
+- Engineering organizations subject to SOC2, ISO 27001, or internal governance requirements
+- CISOs and VPs of Engineering at regulated companies
+
+<Note>GuardianCI requires Pro. State persistence and audit trail generation are paid-tier capabilities.</Note>

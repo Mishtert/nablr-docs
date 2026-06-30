@@ -1,0 +1,46 @@
+---
+title: DebtRadar
+description: See your technical debt before it becomes a crisis
+---
+
+## The Problem
+
+Tech debt is invisible until it stops delivery. Most teams measure it qualitatively with no severity breakdown, no trend, and no distinction between organic debt and AI-generated waste.
+
+## What It Does
+
+Continuously scores debt across five dimensions:
+
+- Code quality and complexity
+- AI-generated anti-patterns
+- Compliance gaps
+- Documentation rot
+
+Categorizes findings as **Critical / High / Medium / Low**. Auto-generates a prioritized remediation plan when Critical findings exist.
+
+## Try It
+
+```
+activate nablr
+Set agent to platform engineer. Scan codebase health
+```
+
+For a focused debt report:
+
+```
+Set agent to platform engineer. Run tech debt analysis and generate a remediation plan
+```
+
+## Expected Output
+
+- `nablr-reports/health_report.md` — severity-ranked health report
+- `docs/TECH_DEBT.md` — prioritized remediation backlog
+- Critical findings trigger an auto-generated fix sequence
+
+## Who This Is For
+
+- CTOs needing board-level visibility into platform health
+- Engineering managers preparing for a reorg, acquisition, or hiring push
+- VPs of Engineering before a scale event
+
+<Note>DebtRadar runs on free tier. Pro unlocks the full remediation rule set and AI anti-pattern library.</Note>
