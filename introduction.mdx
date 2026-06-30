@@ -1,0 +1,44 @@
+---
+title: Introduction
+description: AI-powered SDLC governance for your AI assistant
+---
+
+**nablr** is an MCP server that connects to your AI assistant and enforces quality gates across your entire software delivery lifecycle.
+
+It ships 19 expert AI personas — product manager, architect, developer, tester, security owner, and more — each loaded with rules, standards, and escalation protocols. Free tier includes 40+ local code scanners and workflow tools.
+
+## How it works
+
+nablr runs as a local MCP server alongside your AI assistant. When you invoke a persona, nablr injects the relevant rules, standards, and context directly into the conversation.
+
+```
+Your AI assistant (Cursor / Claude Desktop / Windsurf)
+        ↕  MCP (stdio)
+      nablr
+        ↕  license server (paid tier only)
+   nablr-api
+```
+
+No proxy. No telemetry. Your code never leaves your machine.
+
+## Free vs paid
+
+| Capability | Free | Pro |
+|-----------|------|-----|
+| 40+ code scanners | ✅ | ✅ |
+| Workflow orchestration tools | ✅ | ✅ |
+| Codebase mapping | ✅ | ✅ |
+| 19 expert persona prompts | — | ✅ |
+| 34 rule files (backend, frontend, testing, security) | — | ✅ |
+| Language + framework configs | — | ✅ |
+| Trial (14 days, full Pro) | ✅ | — |
+
+## Compatible clients
+
+nablr uses **stdio** transport and works with any MCP-compatible client:
+
+- Cursor
+- Claude Desktop
+- Windsurf
+
+<Note>Gemini and GitHub Copilot do not currently support MCP.</Note>

@@ -1,0 +1,110 @@
+---
+title: Quickstart
+description: Connect nablr to your AI assistant in under 2 minutes
+---
+
+## Prerequisites
+
+Install `uv` if you don't have it:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+No other installation required — `uvx` fetches nablr on demand from PyPI.
+
+## Connect to your AI assistant
+
+<Tabs>
+  <Tab title="Cursor">
+    Add to `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (project):
+
+    ```json
+    {
+      "mcpServers": {
+        "nablr": {
+          "command": "uvx",
+          "args": ["nablr"]
+        }
+      }
+    }
+    ```
+
+    Or via UI: **Settings → MCP → Add New MCP Server**
+    - Name: `nablr`
+    - Type: `command`
+    - Command: `uvx nablr`
+  </Tab>
+  <Tab title="Claude Desktop">
+    Add to `claude_desktop_config.json`:
+    - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+    - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+    ```json
+    {
+      "mcpServers": {
+        "nablr": {
+          "command": "uvx",
+          "args": ["nablr"]
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Windsurf">
+    Add to `~/.codeium/windsurf/mcp_config.json`:
+
+    ```json
+    {
+      "mcpServers": {
+        "nablr": {
+          "command": "uvx",
+          "args": ["nablr"]
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+Restart your AI assistant after saving the config.
+
+## Verify the connection
+
+In your AI assistant, type:
+
+```
+What nablr agents are available?
+```
+
+You should see a list of agents with descriptions.
+
+## Start a free trial
+
+To unlock all 19 persona prompts for 14 days:
+
+```
+Start my nablr trial
+```
+
+nablr generates a device ID and mints a trial key automatically. No credit card required.
+
+## Try a persona
+
+```
+Set agent to developer
+```
+
+The Developer persona (Polyglot Craftsman) injects the Elite Code Quality Protocol — type hints, structured logging, DRY/KISS enforcement, cognitive complexity limits.
+
+## Full SDLC workflow
+
+```
+1. Set agent to discovery     → scan codebase, generate CODE_MAP
+2. Set agent to product_manager → write requirements with testable AC
+3. Set agent to qa_lead        → validate AC before development
+4. Set agent to architect      → design boundaries and integration points
+5. Set agent to developer      → implement with quality enforcement
+6. Set agent to tester         → write real-execution tests
+7. Set agent to pr_reviewer    → review for compliance + AI anti-patterns
+```

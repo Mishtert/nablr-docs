@@ -1,0 +1,82 @@
+---
+title: Security
+description: Network boundaries, data handling, and airgap support
+---
+
+## Network boundary
+
+nablr makes exactly one category of outbound network call: license validation to `nablr-api.nablrco.workers.dev`.
+
+| Request | When | What's sent |
+|---------|------|------------|
+| `POST /validate` | First prompt after 4-hour cache TTL | `device_id` (UUID), `Authorization: Bearer <key>` |
+| `GET /assets/manifest` | On key activation | `Authorization: Bearer <key>` |
+| `GET /{type}/{path}` | Asset pre-cache (activation only) | `Authorization: Bearer <key>` |
+
+**Your code is never sent anywhere.** All scanners, codebase mapping, and workflow tools run entirely locally via AST analysis.
+
+## Firewall allowlist
+
+If your environment blocks outbound traffic, allowlist:
+
+```
+nablr-api.nablrco.workers.dev:443 (HTTPS)
+```
+
+Only one domain, one port. All traffic is TLS 1.2+.
+
+## Airgap proof
+
+Run the included airgap verification script to confirm no unexpected outbound calls:
+
+```bash
+# Verify no network calls in free tier
+uv run python scripts/airgap_proof.py
+
+# Verify only the allowlisted domain is called with a key
+NABLR_API_KEY=sk_nablr_... uv run python scripts/airgap_proof.py --with-key
+```
+
+The script installs a socket-level firewall and exercises the full prompt generation path. Any unexpected connection attempt raises an error and fails the test.
+
+## Offline / airgap operation
+
+After activating a key, all paid assets are downloaded to `~/.nablr_cache/assets/`. Subsequent prompt generation requires zero network calls.
+
+Cache layout:
+```
+~/.nablr_cache/
+  license.json          ← validation result (4hr TTL)
+  license_key.json      ← your key (chmod 600)
+  assets/
+    manifest.json       ← asset versions + etags
+    rule/               ← rule files
+    prompt/             ← persona prompt bodies
+    config/             ← language + framework configs
+```
+
+All cache files are `chmod 600` — readable only by the current user.
+
+## Key security
+
+- Keys are sent only in the `Authorization: Bearer` header — never in request bodies or URLs
+- Keys are stored at `~/.nablr_cache/license_key.json` with `chmod 600`
+- The last 4 characters are logged when `NABLR_AUDIT_LOG=1` is set — full key is never logged
+
+## Audit logging
+
+Enable structured JSON audit logs for all license requests:
+
+```bash
+export NABLR_AUDIT_LOG=1
+```
+
+Logs include: timestamp, endpoint, HTTP status, key suffix (last 4 chars), response time. Sent to stderr.
+
+## Dependency audit
+
+```bash
+uv run python -m nablr.security_scan
+```
+
+Scans for hardcoded secrets, dangerous file operations, network import violations, and AI anti-patterns across the entire codebase.

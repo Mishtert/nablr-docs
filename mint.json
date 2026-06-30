@@ -1,0 +1,72 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "nablr",
+  "logo": {
+    "light": "/logo.svg",
+    "dark": "/logo.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#3b9eff",
+    "light": "#6db8ff",
+    "dark": "#0f1e3c",
+    "anchors": {
+      "from": "#3b9eff",
+      "to": "#1a5fa8"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/Mishtert/nablr"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Start free trial",
+    "url": "https://nablr.dev"
+  },
+  "anchors": [
+    {
+      "name": "PyPI",
+      "icon": "python",
+      "url": "https://pypi.org/project/nablr"
+    },
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/Mishtert/nablr"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get started",
+      "pages": ["introduction", "quickstart"]
+    },
+    {
+      "group": "Agents",
+      "pages": ["agents/overview"]
+    },
+    {
+      "group": "Tools",
+      "pages": ["tools/overview"]
+    },
+    {
+      "group": "License & Plans",
+      "pages": ["license"]
+    },
+    {
+      "group": "Security",
+      "pages": ["security"]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com/Mishtert/nablr"
+  },
+  "customDomain": "docs.nablr.dev",
+  "modeToggle": {
+    "default": "dark"
+  },
+  "feedback": {
+    "thumbsRating": true
+  }
+}
