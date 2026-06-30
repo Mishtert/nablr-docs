@@ -7,6 +7,38 @@ description: AI-powered SDLC governance for your AI assistant
 
 It ships 19 expert AI personas — product manager, architect, developer, tester, security owner, and more — each loaded with rules, standards, and escalation protocols. Free tier includes 40+ local code scanners and workflow tools.
 
+## The problem it solves
+
+AI assistants accelerate typing, not engineering.
+
+| What they promised | What actually happens |
+|--------------------|----------------------|
+| Ship faster | More code, same bugs |
+| Higher quality | AI-generated tech debt |
+| Reduce costs | Increased rework cycles |
+
+nablr is the orchestration layer that fixes this — quality enforcement, workflow context, and persistent state that AI assistants lack by default.
+
+| Metric | Without nablr | With nablr |
+|--------|--------------|------------|
+| Rework rate | ~30% of dev time | First-pass quality |
+| Review cycles | 2.5 iterations avg | Single iteration |
+| Defect escape to prod | 15% of features | Pre-development validation |
+| Onboarding time | 3–6 months | Instant via CODE_MAP |
+
+## When to use nablr
+
+Reach for nablr when:
+
+- **AI code ships defects** — you use Cursor, Copilot, or Claude but can't trust what merges
+- **Requirements aren't buildable** — stories get written but QA finds gaps after development
+- **Incidents recur** — same root causes keep appearing with different symptoms
+- **Codebase is unknown** — inherited system, no docs, no safe entry point for change
+- **Migrations stall** — platform rewrites start without a complete map and discover unknowns mid-flight
+- **Governance is required** — SOC2, ISO 27001, or internal audit trails needed for AI-assisted development
+
+Not the right fit if your team doesn't use an AI coding assistant — nablr augments the assistant, it doesn't replace it.
+
 ## How it works
 
 nablr runs as a local MCP server alongside your AI assistant. When you invoke a persona, nablr injects the relevant rules, standards, and context directly into the conversation.
