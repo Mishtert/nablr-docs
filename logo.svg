@@ -5,5 +5,5 @@
     <path fill="#1a5fa8" d="M138 70 L98 165 L118 165 L100 250 L158 145 L136 145 L168 70 Z"/>
     <path fill="#3b9eff" d="M130 66 L90 161 L112 161 L94 246 L152 141 L128 141 L162 66 Z"/>
   </svg>
-  <text x="92" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="600" fill="#0f1e3c" letter-spacing="-1">nablr</text>
+  <text x="92" y="68" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="50" font-weight="600" letter-spacing="-2"><tspan fill="#1a5fa8">&lt;</tspan><tspan fill="#0f1e3c">nablr</tspan><tspan fill="#3b9eff">/&gt;</tspan></text>
 </svg>

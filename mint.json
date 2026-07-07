@@ -7,12 +7,22 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#3b9eff",
-    "light": "#6db8ff",
-    "dark": "#0f1e3c",
+    "primary": "#1C2E45",
+    "light": "#5A6E80",
+    "dark": "#111820",
     "anchors": {
-      "from": "#3b9eff",
-      "to": "#1a5fa8"
+      "from": "#1C2E45",
+      "to": "#5A6E80"
+    }
+  },
+  "background": {
+    "light": "#F2EDE4",
+    "dark": "#111820"
+  },
+  "fonts": {
+    "family": "Inter",
+    "heading": {
+      "family": "JetBrains Mono"
     }
   },
   "topbarLinks": [

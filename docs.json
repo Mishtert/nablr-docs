@@ -1,0 +1,76 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "nablr",
+  "logo": {
+    "light": "/logo.svg",
+    "dark": "/logo-dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#1C2E45",
+    "light": "#5A6E80",
+    "dark": "#111820"
+  },
+  "background": {
+    "light": "#F2EDE4",
+    "dark": "#111820"
+  },
+  "fonts": {
+    "family": "Inter",
+    "heading": {
+      "family": "JetBrains Mono"
+    }
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Get started",
+        "pages": ["introduction", "quickstart"]
+      },
+      {
+        "group": "Use Cases",
+        "pages": [
+          "use-cases/debt-radar",
+          "use-cases/ship-safe",
+          "use-cases/spec-first",
+          "use-cases/forensics-iq",
+          "use-cases/test-architect",
+          "use-cases/migration-pilot",
+          "use-cases/guardian-ci",
+          "use-cases/context-mesh",
+          "use-cases/code-to-clarity"
+        ]
+      },
+      {
+        "group": "Agents",
+        "pages": ["agents/overview"]
+      },
+      {
+        "group": "Tools",
+        "pages": ["tools/overview"]
+      },
+      {
+        "group": "License & Plans",
+        "pages": ["license"]
+      },
+      {
+        "group": "Security",
+        "pages": ["security"]
+      }
+    ]
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Start free trial",
+      "href": "https://nablr.dev"
+    }
+  },
+  "appearance": {
+    "default": "light"
+  },
+  "feedback": {
+    "thumbsRating": true
+  }
+}
