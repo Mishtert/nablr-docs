@@ -1,0 +1,40 @@
+---
+title: nablr vs. Claude Skills
+description: nablr is not a Claude Skill - here's the actual difference
+icon: git-compare
+---
+
+<Card title="Short answer" icon="circle-check">
+  Claude Skills are prompt+script bundles Claude loads into its own context and decides to trigger. nablr is a separate MCP server - a stateful SDLC orchestration layer any MCP client can talk to, not just Claude.
+</Card>
+
+## <Icon icon="triangle-alert" /> Why people ask
+
+Claude Code supports both **Skills** and **MCP servers** side by side, and both show up as "things Claude can use." That's where the confusion starts. They solve different problems.
+
+## <Icon icon="git-compare" /> Side by side
+
+| | Claude Skills | nablr |
+|---|---|---|
+| **What it is** | A `SKILL.md` + scripts bundle loaded into Claude's own context | An external MCP server process Claude (or any MCP client) connects to over stdio |
+| **Who triggers it** | Claude, by matching the task against the skill's description | You, explicitly (`Set agent to developer`) - or nablr's own workflow state |
+| **Works with** | Claude only (Claude.ai, Claude Code, Claude Desktop) | Cursor, Claude Desktop, Windsurf - any MCP-compatible client |
+| **State across turns** | None - each invocation is a stateless prompt injection | Persistent session/story state (`active_agent`, `active_story`, blockers, halt flags) tracked across the whole workflow |
+| **Enforcement** | Advisory - Claude follows the skill's instructions if it decides to invoke it | Gated - `qa_lead` validates acceptance criteria before `developer` can start, `pr_reviewer` checks compliance before merge, blockers escalate at L1/L2/L3 |
+| **Analysis** | Whatever the skill's scripts happen to do | 40+ local AST scanners (dead code, complexity, security, tech debt) shipped as first-class tools |
+| **Multi-step orchestration** | Skills don't sequence each other | 19 personas in a defined handoff sequence: product_manager → qa_lead → architect → developer → tester → pr_reviewer |
+| **Licensing model** | N/A | Free tier (scanners, workflow, codemap) + Pro tier (personas, rule files) via license key |
+| **Audit trail** | None built in | Structured event logs for governance / compliance evidence |
+
+## <Icon icon="layers" /> They're not competitors
+
+nablr doesn't replace Claude Skills, and it isn't trying to be one. A Claude Skill is a capability Claude reaches for inside its own context. nablr is the governance layer sitting alongside your assistant, enforcing quality gates and holding workflow state that no skill - stateless by design - can hold on its own.
+
+You can run nablr and Claude Skills in the same Claude Code session with no conflict.
+
+## <Icon icon="cog" /> How to tell which one you're looking at
+
+- Lives in `.claude/skills/` or a plugin, described in a `SKILL.md` → **Claude Skill**
+- Shows up in your MCP client config (`mcp.json`, `claude_desktop_config.json`) as a `command` + `args` → **MCP server** (this is nablr)
+
+<Note>Still unsure whether nablr fits your workflow? See [When to use nablr](/introduction#-when-to-use-nablr) or try a [use case](/use-cases/code-to-clarity).</Note>

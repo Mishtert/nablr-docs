@@ -30,7 +30,7 @@
       {
         "group": "Get started",
         "icon": "rocket",
-        "pages": ["introduction", "quickstart"]
+        "pages": ["introduction", "quickstart", "vs-claude-skills"]
       },
       {
         "group": "Use Cases",
